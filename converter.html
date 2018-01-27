@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<meta name="author" content="Karen Zhao">
+<link rel="usa-icon" type="image/jpg" href="https://image.freepik.com/free-vector/grunge-style-american-flag-background_1048-2203.jpg">
+<title>US Converter</title>
+<style>
+	html {
+		text-align: center;
+	}
+	.rainbow {
+	  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.2, #f2f), color-stop(0.4, #22f), color-stop(0.6, #2ff), color-stop(0.8, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+	  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.2, #f2f), color-stop(0.4, #22f), color-stop(0.6, #2ff), color-stop(0.8, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+	  color: transparent;
+	  -webkit-background-clip: text;
+	  background-clip: text;
+	}
+	.grayscale {
+	    background-image: -webkit-linear-gradient(left, #999, #d6d6d6, #fff); 
+	    background-image: linear-gradient(to right, #999, #d6d6d6, #fff); 
+	    color: transparent;
+	    -webkit-background-clip: text;
+	    background-clip: text;
+	}
+</style>
+<body>
+<h1 class="rainbow">Why No Metric System 'Murica?!</h1>
+
+<h2 class="grayscale">Weight (lbs to kg) :</h2>
+<p>
+  <label>Pounds:</label>
+  <input id="inputPounds" type="number" placeholder="Pounds" oninput="weightConverter(this.value)" onchange="weightConverter(this.value)">
+</p>
+<p>Kilograms: <span id="outputKilograms"></span></p>
+
+<h2 class="grayscale">Temperature (°F to C) :</h2>
+<p>
+  <label>Fahrenheit:</label>
+  <input id="inputFahrenheit" type="number" placeholder="Fahrenheit" oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)">
+</p>
+<p>Celcius: <span id="outputCelcius"></span></p>
+
+<script>
+function weightConverter(valNum) {
+  document.getElementById("outputKilograms").innerHTML = valNum / 2.2046;
+}
+function temperatureConverter(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputCelcius").innerHTML = (valNum - 32) / 1.8;
+}
+</script>
+</body>
+</html>
