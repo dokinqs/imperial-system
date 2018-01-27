@@ -1,4 +1,8 @@
-# imperial-system
+# Annoying and Obsolete
+
+because the rest of the world doesn't matter
+
+trololol
 
 [Demo](https://dokinqs.github.io/imperial-system/converter.html)
 
