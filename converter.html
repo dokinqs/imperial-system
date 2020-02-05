@@ -1,52 +1,97 @@
 <!DOCTYPE html>
 <html>
-<meta name="author" content="Karen Zhao">
-<link rel="usa-icon" type="image/jpg" href="https://image.freepik.com/free-vector/grunge-style-american-flag-background_1048-2203.jpg">
-<title>US Converter</title>
+<head>
+	<meta name="author" content="Karen Zhao">
+	<link rel="shortcut icon" type="image/jpg" href="https://image.freepik.com/free-vector/grunge-style-american-flag-background_1048-2203.jpg">
+	<title>US Converter</title>
+</head>
+
 <style>
 	html {
 		text-align: center;
+		font-family: 'Open Sans', 'Helvetica', sans-serif;
+		height: 100%;
 	}
-	.rainbow {
-	  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.2, #f2f), color-stop(0.4, #22f), color-stop(0.6, #2ff), color-stop(0.8, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-	  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.2, #f2f), color-stop(0.4, #22f), color-stop(0.6, #2ff), color-stop(0.8, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-	  color: transparent;
-	  -webkit-background-clip: text;
-	  background-clip: text;
+	h1 {
+		margin: 60px auto;
 	}
 	.grayscale {
-	    background-image: -webkit-linear-gradient(left, #999, #d6d6d6, #fff); 
-	    background-image: linear-gradient(to right, #999, #d6d6d6, #fff); 
-	    color: transparent;
-	    -webkit-background-clip: text;
-	    background-clip: text;
+		background-image: -webkit-linear-gradient(left, #f00, #d6d6d6, #008cff); 
+		background-image: linear-gradient(to right, #f00, #d6d6d6, #008cff); 
+		color: transparent;
+		-webkit-background-clip: text;
+		background-clip: text;
+	}
+	.container {
+		border: 1px white solid;
+		min-width: 290px;
+		max-width: 50vw;
+		margin: 0 auto;
+		padding: 10px;
+		background: white;
+		box-shadow: 3px 3px 15px #9bc5f9;
+	}
+	.convert {
+		display: block;
+		text-align: center;
+		justify-items: center;
+		margin: 0 auto;
+	}
+	.convert p {
+		display: inline-block;
+		text-align: left;
+		margin: 5px;
+	}
+	input {
+		width: 80px;
+		margin: 10px;
+	}
+	input[type=number]:focus {
+    	color: #E9797E;
 	}
 </style>
+
 <body>
-<h1 class="rainbow">Why No Metric System 'Murica?!</h1>
 
-<h2 class="grayscale">Weight (lbs to kg) :</h2>
-<p>
-  <label>Pounds:</label>
-  <input id="inputPounds" type="number" placeholder="Pounds" oninput="weightConverter(this.value)" onchange="weightConverter(this.value)">
-</p>
-<p>Kilograms: <span id="outputKilograms"></span></p>
+	<h1 class="grayscale">Imperial / Metric Unit Converter</h1>
+	<div class="container">
+		<h3 class="grayscale">Weight (lbs / kg) :</h3>
+		<div class="convert">
+			<p>
+				<label>Pounds:</label>
+					<input id="putPound" type="number" placeholder="0" oninput="weightConverter(this.value)" onchange="weightConverter(this.value)" />
+				<br />
+				<label>Kilograms:</label>
+					<input id="putKilogram" type="number" placeholder="0" oninput="weightConverterMetric(this.value)" onchange="weightConverterMetric(this.value)" />
+			</p>
+		</div>
 
-<h2 class="grayscale">Temperature (°F to C) :</h2>
-<p>
-  <label>Fahrenheit:</label>
-  <input id="inputFahrenheit" type="number" placeholder="Fahrenheit" oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)">
-</p>
-<p>Celcius: <span id="outputCelcius"></span></p>
+		<h3 class="grayscale">Temperature (°F / °C) :</h3>
+		<div class="convert">
+			<p>
+				<label>Fahrenheit:</label>
+				<input id="putFahrenheit" type="number" placeholder="0" oninput="tempConverter(this.value)" onchange="tempConverter(this.value)" />
+			<br />
+				<label>Celsius:</label>
+				<input id="putCelsius" type="number" placeholder="0" oninput="tempConverterMetric(this.value)" onchange="tempConverterMetric(this.value)" />
+			</p>
+		</div>
+	</div>
 
-<script>
-function weightConverter(valNum) {
-  document.getElementById("outputKilograms").innerHTML = valNum / 2.2046;
-}
-function temperatureConverter(valNum) {
-  valNum = parseFloat(valNum);
-  document.getElementById("outputCelcius").innerHTML = (valNum - 32) / 1.8;
-}
-</script>
+	<script>
+		function weightConverter(valNum) {
+			document.getElementById("putKilogram").value = (valNum / 2.2046).toFixed(2);
+		}
+		function weightConverterMetric(valNum) {
+			document.getElementById("putPound").value = (valNum * 2.2046).toFixed(2);
+		}
+		function tempConverter(valNum) {
+			document.getElementById("putCelsius").value = ((valNum - 32) / 1.8).toFixed(2);
+		}
+		function tempConverterMetric(valNum) {
+			document.getElementById("putFahrenheit").value = (valNum * 1.8 + 32).toFixed(2);
+		}
+	</script>
+
 </body>
 </html>
