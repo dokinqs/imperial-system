@@ -2,6 +2,8 @@
 <html>
 <head>
 	<meta name="author" content="Karen Zhao">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=News+Cycle:400,700" rel="stylesheet">
 	<link rel="shortcut icon" type="image/jpg" href="https://image.freepik.com/free-vector/grunge-style-american-flag-background_1048-2203.jpg">
 	<title>Unit Converter</title>
 </head>
@@ -9,11 +11,12 @@
 <style>
 	html {
 		text-align: center;
-		font-family: 'Open Sans', 'Helvetica', sans-serif;
+		font-family: 'News Cycle', 'Open Sans', sans-serif;
 		height: 100%;
 	}
 	h1 {
-		margin: 60px auto;
+		margin: 50px auto;
+		font-weight: 700;
 	}
 	.grayscale {
 		background-image: -webkit-linear-gradient(left, #f00, #d6d6d6, #008cff); 
@@ -24,7 +27,7 @@
 	}
 	.container {
 		border: 1px white solid;
-		min-width: 290px;
+		min-width: 210px;
 		max-width: 50vw;
 		margin: 0 auto;
 		padding: 10px;
@@ -41,55 +44,56 @@
 		display: inline-block;
 		text-align: left;
 		margin: 5px;
+		font-weight: 400;
 	}
 	input {
-		width: 80px;
+		width: 100px;
 		margin: 10px;
 	}
 	input[type=number]:focus {
-    	color: #E9797E;
+		color: #E9797E;
 	}
 </style>
 
 <body>
 
-	<h1 class="grayscale">Imperial / Metric Unit Converter</h1>
+	<h1 class="grayscale">Imperial / Metric Conversion</h1>
 	<div class="container">
-		<h3 class="grayscale">Weight (lbs / kg) :</h3>
+		<h3 class="grayscale">Weight (lbs / kg)</h3>
 		<div class="convert">
 			<p>
 				<label>Pounds:</label>
-					<input id="putPound" type="number" placeholder="0" oninput="weightConverter(this.value)" onchange="weightConverter(this.value)" />
+					<input id="pound" type="number" placeholder="0" oninput="weightToImperial(this.value)" />
 				<br />
 				<label>Kilograms:</label>
-					<input id="putKilogram" type="number" placeholder="0" oninput="weightConverterMetric(this.value)" onchange="weightConverterMetric(this.value)" />
+					<input id="kilogram" type="number" placeholder="0" oninput="weightToMetric(this.value)" />
 			</p>
 		</div>
 
-		<h3 class="grayscale">Temperature (°F / °C) :</h3>
+		<h3 class="grayscale">Temperature (°F / °C)</h3>
 		<div class="convert">
 			<p>
 				<label>Fahrenheit:</label>
-				<input id="putFahrenheit" type="number" placeholder="0" oninput="tempConverter(this.value)" onchange="tempConverter(this.value)" />
+				<input id="fahrenheit" type="number" placeholder="0" oninput="tempToImperial(this.value)" />
 			<br />
 				<label>Celsius:</label>
-				<input id="putCelsius" type="number" placeholder="0" oninput="tempConverterMetric(this.value)" onchange="tempConverterMetric(this.value)" />
+				<input id="celsius" type="number" placeholder="0" oninput="tempToMetric(this.value)" />
 			</p>
 		</div>
 	</div>
 
 	<script>
-		function weightConverter(valNum) {
-			document.getElementById("putKilogram").value = (valNum / 2.2046).toFixed(2);
+		function weightToImperial(inputNum) {
+			document.getElementById("kilogram").value = (inputNum / 2.2046).toFixed(2);
 		}
-		function weightConverterMetric(valNum) {
-			document.getElementById("putPound").value = (valNum * 2.2046).toFixed(2);
+		function weightToMetric(inputNum) {
+			document.getElementById("pound").value = (inputNum * 2.2046).toFixed(2);
 		}
-		function tempConverter(valNum) {
-			document.getElementById("putCelsius").value = ((valNum - 32) / 1.8).toFixed(2);
+		function tempToImperial(inputNum) {
+			document.getElementById("celsius").value = ((inputNum - 32) / 1.8).toFixed(2);
 		}
-		function tempConverterMetric(valNum) {
-			document.getElementById("putFahrenheit").value = (valNum * 1.8 + 32).toFixed(2);
+		function tempToMetric(inputNum) {
+			document.getElementById("fahrenheit").value = (inputNum * 1.8 + 32).toFixed(2);
 		}
 	</script>
 
