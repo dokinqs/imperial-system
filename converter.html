@@ -1,72 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta name="author" content="Karen Zhao">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=News+Cycle:400,700" rel="stylesheet">
 	<link rel="shortcut icon" type="image/jpg" href="https://image.freepik.com/free-vector/grunge-style-american-flag-background_1048-2203.jpg">
 	<title>Unit Converter</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
-
-<style>
-	html {
-		text-align: center;
-		font-family: 'News Cycle', 'Open Sans', sans-serif;
-		height: 100%;
-	}
-	h1 {
-		margin: 50px auto;
-		font-weight: 700;
-	}
-	.grayscale {
-		background-image: -webkit-linear-gradient(left, #f00, #d6d6d6, #008cff); 
-		background-image: linear-gradient(to right, #f00, #d6d6d6, #008cff); 
-		color: transparent;
-		-webkit-background-clip: text;
-		background-clip: text;
-	}
-	.container {
-		border: 1px white solid;
-		min-width: 270px;
-		max-width: 50vw;
-		margin: 40px auto;
-		padding: 10px;
-		background: white;
-		box-shadow: 3px 3px 15px #9bc5f9;
-	}
-	.convert {
-		display: block;
-		text-align: center;
-		justify-items: center;
-		margin: 0 auto;
-	}
-	.convert p {
-		display: inline-block;
-		text-align: left;
-		margin: 5px;
-		font-weight: 400;
-	}
-	.half {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		justify-items: center;
-		row-gap: 10px;
-		min-width: 230px;
-		width: 28vw;
-	}
-	.lengthDiv {
-		display: grid;
-		/* text-align: left; */
-		font-weight: 400;
-	}
-	input {
-		width: 90px;
-		margin: 10px;
-	}
-	input[type=number]:focus {
-		color: #E9797E;
-	}
-</style>
 
 <body>
 
@@ -76,10 +17,10 @@
 		<div class="convert">
 			<p>
 				<label>Pounds:</label>
-					<input id="pound" type="number" placeholder="0" oninput="weightToImperial(this.value)" />
+					<input id="pound" type="number" placeholder="0" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189" oninput="weightToImperial(this.value)" />
 				<br />
 				<label>Kilograms:</label>
-					<input id="kilogram" type="number" placeholder="0" oninput="weightToMetric(this.value)" />
+					<input id="kilogram" type="number" placeholder="0" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189" oninput="weightToMetric(this.value)" />
 			</p>
 		</div>
 
@@ -87,10 +28,10 @@
 		<div class="convert">
 			<p>
 				<label>Fahrenheit:</label>
-				<input id="fahrenheit" type="number" placeholder="0" oninput="tempToImperial(this.value)" />
+				<input id="fahrenheit" type="number" placeholder="0" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189" oninput="tempToImperial(this.value)" />
 			<br />
 				<label>Celsius:</label>
-				<input id="celsius" type="number" placeholder="0" oninput="tempToMetric(this.value)" />
+				<input id="celsius" type="number" placeholder="0" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189" oninput="tempToMetric(this.value)" />
 			</p>
 		</div>
 
@@ -98,115 +39,61 @@
 		<div class="convert half">
 			<div class="lengthDiv">
 				<label>Feet</label>
-				<input id="inputFeet" class="lengthInput" type="number" placeholder="0" oninput="lengthConverter(this.id, this.value)">
+				<input id="inputFeet" class="lengthInput" type="number" placeholder="0" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189" oninput="lengthConverter(this.id, this.value)">
 			</div>
 			<div class="lengthDiv">
 				<label>Meters</label>
-				<input id="inputMeters" class="lengthInput" type="number" placeholder="0" oninput="lengthConverter(this.id, this.value)">
+				<input id="inputMeters" class="lengthInput" type="number" placeholder="0" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189" oninput="lengthConverter(this.id, this.value)">
 			</div>
 			<div class="lengthDiv">
 				<label>Inches</label>
-				<input id="inputInches" class="lengthInput" type="number" placeholder="0" oninput="lengthConverter(this.id, this.value)">
+				<input id="inputInches" class="lengthInput" type="number" placeholder="0" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189" oninput="lengthConverter(this.id, this.value)">
 			</div>
 			<div class="lengthDiv">
 				<label>Centimeters</label>
-				<input id="inputCentimeters" class="lengthInput" type="number" placeholder="0" oninput="lengthConverter(this.id, this.value)">
+				<input id="inputCentimeters" class="lengthInput" type="number" placeholder="0" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189" oninput="lengthConverter(this.id, this.value)">
 			</div>
 			<div class="lengthDiv">
 				<label>Yards</label>
-				<input id="inputYards" class="lengthInput" type="number" placeholder="0" oninput="lengthConverter(this.id, this.value)">
+				<input id="inputYards" class="lengthInput" type="number" placeholder="0" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189" oninput="lengthConverter(this.id, this.value)">
 			</div>
 			<div class="lengthDiv">
 				<label>Kilometers</label>
-				<input id="inputKilometers" class="lengthInput" type="number" placeholder="0" oninput="lengthConverter(this.id, this.value)">
+				<input id="inputKilometers" class="lengthInput" type="number" placeholder="0" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189" oninput="lengthConverter(this.id, this.value)">
 			</div>
 			<div class="lengthDiv">
 				<label>Miles</label>
-				<input id="inputMiles" class="lengthInput" type="number" placeholder="0" oninput="lengthConverter(this.id, this.value)">
+				<input id="inputMiles" class="lengthInput" type="number" placeholder="0" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189" oninput="lengthConverter(this.id, this.value)">
 			</div>
 		</div>
+
+		<div class="converter-wrapper">
+		
+			<form name="property_form">
+				<span>
+					<select class="select-property" name="main_menu" onChange="UpdateUnitMenu(this, document.form_A.unit_menu); UpdateUnitMenu(this, document.form_B.unit_menu)">
+					</select>
+				</span>
+			</form>
+		
+			<div class="converters">
+				<div class="converter-side-a">
+					<form name="form_A" onSubmit="return false">
+						<input type="number" step="any" name="unit_input" placeholder="0" onKeyUp="ConvertFromTo(document.form_A, document.form_B)">	
+						<select name="unit_menu" class="A" onChange="ConvertFromTo(document.form_B, document.form_A)"></select>
+					</form>
+				</div> 
+			
+				<div class="converter-side-b">
+					<form name="form_B" onSubmit="return false">
+						<input type="number" step="any" name="unit_input" placeholder="0" onKeyUp="ConvertFromTo(document.form_B, document.form_A)">
+						<select name="unit_menu" class="B" onChange="ConvertFromTo(document.form_A, document.form_B)"></select>
+					</form>
+				</div> <!-- /converter-side-b -->
+			</div> <!-- /converters -->
+		</div><!-- /converter-wrapper -->
 	</div>
 
-	<script>
-		function weightToImperial(inputNum) {
-			document.getElementById("kilogram").value = (inputNum / 2.2046).toFixed(2);
-		}
-		function weightToMetric(inputNum) {
-			document.getElementById("pound").value = (inputNum * 2.2046).toFixed(2);
-		}
-		function tempToImperial(inputNum) {
-			document.getElementById("celsius").value = ((inputNum - 32) / 1.8).toFixed(2);
-		}
-		function tempToMetric(inputNum) {
-			document.getElementById("fahrenheit").value = (inputNum * 1.8 + 32).toFixed(2);
-		}
-		function lengthConverter(inputId, inputNum) {
-			inputNum = parseFloat(inputNum);
-			let inputFeet = document.getElementById("inputFeet");
-			let inputMeters = document.getElementById("inputMeters");
-			let inputInches = document.getElementById("inputInches");
-			let inputCentimeters = document.getElementById("inputCentimeters");
-			let inputYards = document.getElementById("inputYards");
-			let inputKilometers = document.getElementById("inputKilometers");
-			let inputMiles = document.getElementById("inputMiles");
-			if (inputId == "inputFeet") {
-				inputMeters.value = (inputNum / 3.2808).toFixed(2);
-				inputInches.value = (inputNum * 12).toFixed(2);
-				inputCentimeters.value = (inputNum / 0.032808).toFixed(0);
-				inputYards.value = (inputNum * 0.33333).toFixed(2);
-				inputKilometers.value = (inputNum / 3280.8).toFixed(5);
-				inputMiles.value = (inputNum * 0.00018939).toFixed(5);
-			}
-			if (inputId == "inputMeters") {
-				inputFeet.value = (inputNum * 3.2808).toFixed(2);
-				inputInches.value = (inputNum * 39.370).toFixed(2);
-				inputCentimeters.value = (inputNum / 0.01).toFixed(0);
-				inputYards.value = (inputNum * 1.0936).toFixed(2);
-				inputKilometers.value = (inputNum / 1000).toFixed(5);
-				inputMiles.value = (inputNum * 0.00062137).toFixed(5);
-			}
-			if (inputId == "inputInches") {
-				inputFeet.value = (inputNum * 0.083333).toFixed(3);
-				inputMeters.value = (inputNum / 39.370).toFixed(3);
-				inputCentimeters.value = (inputNum / 0.39370).toFixed(2);
-				inputYards.value = (inputNum * 0.027778).toFixed(3);
-				inputKilometers.value = (inputNum / 39370).toFixed(6);
-				inputMiles.value = (inputNum * 0.000015783).toFixed(6);
-			}
-			if (inputId == "inputCentimeters") {
-				inputFeet.value = (inputNum * 0.032808).toFixed(3);
-				inputMeters.value = (inputNum / 100).toFixed(3);
-				inputInches.value = (inputNum * 0.39370).toFixed(2);
-				inputYards.value = (inputNum * 0.010936).toFixed(3);
-				inputKilometers.value = (inputNum / 100000).toFixed(6);
-				inputMiles.value = (inputNum * 0.0000062137).toFixed(6);
-			}
-			if (inputId == "inputYards") {
-				inputFeet.value = (inputNum * 3).toFixed(0);
-				inputMeters.value = (inputNum / 1.0936).toFixed(2);
-				inputInches.value = (inputNum * 36).toFixed(0);
-				inputCentimeters.value = (inputNum / 0.010936).toFixed(0);
-				inputKilometers.value = (inputNum / 1093.6).toFixed(5);
-				inputMiles.value = (inputNum * 0.00056818).toFixed(5);
-			}
-			if (inputId == "inputKilometers") {
-				inputFeet.value = (inputNum * 3280.8).toFixed();
-				inputMeters.value = (inputNum * 1000).toFixed();
-				inputInches.value = (inputNum * 39370).toFixed();
-				inputCentimeters.value = (inputNum * 100000).toFixed();
-				inputYards.value = (inputNum * 1093.6).toFixed();
-				inputMiles.value = (inputNum * 0.62137).toFixed(2);
-			}
-			if (inputId == "inputMiles") {
-				inputFeet.value = (inputNum * 5280).toFixed();
-				inputMeters.value = (inputNum / 0.00062137).toFixed();
-				inputInches.value = (inputNum * 63360).toFixed();
-				inputCentimeters.value = (inputNum / 0.0000062137).toFixed();
-				inputYards.value = (inputNum * 1760).toFixed();
-				inputKilometers.value = (inputNum / 0.62137).toFixed(2);
-			}
-		}
-	</script>
-
+<script src="converter.js" type="text/javascript"></script>
 </body>
 </html>

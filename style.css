@@ -1,0 +1,134 @@
+html {
+    text-align: center;
+    font-family: 'News Cycle', 'Open Sans', sans-serif;
+    height: 100%;
+}
+h1 {
+    margin: 50px auto;
+    font-size: 40px;
+    font-weight: 700;
+}
+h3 {
+    font-size: 24px;
+    font-weight: 700;
+}
+.grayscale {
+    background-image: -webkit-linear-gradient(left, #f00, #d6d6d6, #008cff); 
+    background-image: linear-gradient(to right, #f00, #d6d6d6, #008cff);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+.container {
+    border: 1px white solid;
+    min-width: 280px;
+    max-width: 50vw;
+    margin: 40px auto;
+    padding: 10px;
+    background: white;
+    box-shadow: 3px 3px 15px #9bc5f9;
+}
+.convert {
+    display: block;
+    text-align: center;
+    justify-items: center;
+    margin: 0 auto;
+}
+.convert p {
+    display: inline-block;
+    text-align: left;
+    margin: 5px;
+    font-size: 20px;
+    font-weight: 400;
+}
+.half {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10px;
+    min-width: 240px;
+    width: 28vw;
+    font-size: 20px;
+}
+.lengthDiv {
+    display: grid;
+    /* text-align: left; */
+    font-weight: 400;
+}
+input {
+    width: 90px;
+    margin: 10px;
+}
+input[type=number]:focus {
+    color: #E9797E;
+}
+
+
+
+.converter-wrapper {
+    margin: 0 auto;
+    height: 200px;
+    min-width: 240px; 
+    max-width: 350px;
+    text-align: center;
+    padding: 10px;
+}
+
+.converter-wrapper span {
+    width: 150px;
+    font-size: 20px;
+}
+/* chrome issue selected option doesn't change while still focused */
+.converter-wrapper span select {
+    background-image: -webkit-linear-gradient(left, #fe7373, #d6d6d6, #7ec5ff);
+    background-image: linear-gradient(to right, #fe7373, #d6d6d6, #7ec5ff); 
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 8px;
+    text-align-last: center; 
+    border: 1px solid #bbb;
+    margin: 0;
+    -webkit-appearance: none; /* hide default arrows */
+    font-family: 'News Cycle', 'Open Sans', sans-serif;
+}
+
+/* cuz firefox option css style changes but chrome dropdown doesn't */
+.converter-wrapper span option {
+    background-color: #e6f1ff;
+    color: #555;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.converters {
+    min-width: 260px;
+    width: 100%;
+    height: 100px;
+}
+.converter-side-a, .converter-side-b {
+    width: 50%;
+    float: left;
+    margin-top: 10px;
+}
+
+.converter-wrapper input {
+    font-size: 16px;
+    width: 110px;
+    text-align: center;
+}
+
+/* unit menu */
+.converter-wrapper select.A, .converter-wrapper select.B {
+    font-family: 'News Cycle', 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    width: 120px;
+    padding: 5px;
+    background: #ebf5ff;
+    border: 0px;
+}
+.converter-wrapper select.A {
+    margin-right: 2px;
+}
