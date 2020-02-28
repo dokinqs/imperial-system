@@ -89,7 +89,7 @@ input[type=number]:focus {
     color: transparent;
     -webkit-text-fill-color: transparent;
     text-align-last: center; /* safari doesn't support */
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     padding: 8px;
     border: 1px solid #bbb;
@@ -109,18 +109,18 @@ input[type=number]:focus {
 @supports (-webkit-text-size-adjust: none) and (not (-ms-ime-align: auto)) and (not (-moz-appearance: none)) {
     .converter-wrapper span select {
         background-image: none;
-        /* color: #555; */
-        -webkit-text-fill-color: #555;
+        /* color: #8CBAE6; */
+        -webkit-text-fill-color: #8CBAE6;
         text-align-last: none;
         padding-left: 16px;
         padding-right: 10px;
     }
 }
-/* desktop safari and chrome... */
+/* desktop safari */
 _:-webkit-full-screen:not(:root:root), .converter-wrapper span select {
     background-image: none;
-    /* color: #555; */
-    -webkit-text-fill-color: #555;
+    /* color: #8CBAE6; */
+    -webkit-text-fill-color: #8CBAE6;
     text-align-last: none;
     padding-left: 16px;
     padding-right: 10px;
