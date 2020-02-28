@@ -89,16 +89,12 @@ property[0] = "Volume (cup / mL)";
 unit[0] = new Array("cup", "fl oz", "tbsp", "tsp", "mL");
 factor[0] = new Array(1, 0.125, 0.0625, 0.020833, 0.00422675);
 
-// 1 [2nd Unit] = [2nd unit Factor] [Base Unit] - [2nd tempIncrement]
-//            1 F = 0.555 C + -32
-//            0.555 C = 1 F + 0  
-//            1 F = 0.555 K + 273.15
-//            1 K = 1 C + -273.15
-//            1 C = 1 K + 0
+// sourceForm.unit_input.value = ((targetForm.unit_input.value - tempIncrement[targetIndex]) * targetFactor / sourceFactor) + tempIncrement[sourceIndex]
+
 property[1] = "Temperature (Kelvin)";
 unit[1] = new Array("Celsius", "Fahrenheit", "Kelvin");
-factor[1] = new Array(1, 0.555, 1);
-tempIncrement = new Array(0, -32, -273.15);
+factor[1] = new Array(1, 0.55555, 1);
+tempIncrement = new Array(0, 32, 273.15);
 
 window.onload = () => {
     FillMenuWithArray(document.property_form.main_menu, property);
@@ -149,31 +145,63 @@ function ConvertFromTo(sourceForm, targetForm) {
     sourceIndex = sourceForm.unit_menu.selectedIndex;
      console.log(`sourceIndex: ${sourceIndex}`);
     sourceFactor = factor[propIndex][sourceIndex];
+    // ex: from C to F, factor[1][1] = 5/9
      console.log(`sourceFactor: ${sourceFactor}`);
 
     // target- unit converting TO:
     targetIndex = targetForm.unit_menu.selectedIndex;
      console.log(`targetIndex: ${targetIndex}`);
     targetFactor = factor[propIndex][targetIndex];
+    // ex: factor[1][0] = 1
      console.log(`targetFactor: ${targetFactor}`);
 
-    // a) sourceFactor to convert source TO Base unit
+    // see bottom for calculations
+    // a) sourceFactor to convert source TO BASE unit
         result = sourceForm.unit_input.value;
+        // ex: input 1°C
+        console.log(`input source: ${result}`);
 
+        // if temperature, not volume
         if (property[propIndex] == "Temperature (Kelvin)") {
-            result = parseFloat(result) + tempIncrement[sourceIndex];
-            console.log(`result A: ${result}`);
+            result = parseFloat(result) - tempIncrement[sourceIndex];
+            console.log(`start temp source result: ${result}`);
         }
 
         result = result * sourceFactor;
+        console.log(`end source result: ${result}`);
 
-    // b) targetFactor to convert Base To target unit
+    // b) targetFactor to convert BASE To target unit
         result = result / targetFactor;
+        console.log(`start target result: ${result}`);
 
         if (property[propIndex] == "Temperature (Kelvin)") {
-            result = parseFloat(result) - tempIncrement[targetIndex];
-            console.log(`result B: ${result}`);
+            result = parseFloat(result) + tempIncrement[targetIndex];
+            console.log(`TEMP TARGET RESULT: ${result}`);
         }
 
-        targetForm.unit_input.value = result;
+        console.log(`TARGET RESULT: ${result}`);
+        targetForm.unit_input.value = result.toFixed(2);
+
+    // targetForm.unit_input.value = ((sourceForm.unit_input.value - tempIncrement[sourceIndex]) * sourceFactor / targetFactor) + tempIncrement[targetIndex]
+
+    // property[1]       Temp
+    // unit[1]           ["°C", "°F", "K"]
+    // factor[1]         [1, 5/9, 1]
+    // tempIncrement     [0, 32, 273.15]
+
+    // sourceForm.unit_input.value 
+     // - tempIncrement[sourceIndex]
+     // * sourceFactor
+     // / targetFactor 
+     // + tempIncrement[targetIndex]
+    // = targetForm.unit_input.value
+
+    // ((1°C - 0) * 1 / 5/9)    + 32       = 33.8°F
+    // ((1°C - 0) * 1 / 1)      + 273.15   = 274.15K 
+
+    // ((1°F − 32) * 5/9 / 1)   + 0       = -17.22°C
+    // ((1°F − 32) * 5/9 / 1)   + 273.15  = 255.928K
+
+    // ((1K − 273.15) * 1 / 1)   + 0      = -272.1°C
+    // ((1K − 273.15) * 1 / 5/9) + 32     = -457.9°F
 }

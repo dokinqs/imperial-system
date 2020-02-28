@@ -3,6 +3,9 @@ html {
     font-family: 'News Cycle', 'Open Sans', sans-serif;
     height: 100%;
 }
+body {
+    padding-bottom: 20px;
+}
 h1 {
     margin: 50px auto;
     font-size: 40px;
@@ -77,29 +80,50 @@ input[type=number]:focus {
     width: 150px;
     font-size: 20px;
 }
-/* chrome issue selected option doesn't change while still focused */
+/* gradient only for firefox, chrome issue selected option doesn't change while still focused */
 .converter-wrapper span select {
-    background-image: -webkit-linear-gradient(left, #fe7373, #d6d6d6, #7ec5ff);
     background-image: linear-gradient(to right, #fe7373, #d6d6d6, #7ec5ff); 
-    color: transparent;
-    -webkit-background-clip: text;
+    background-image: -webkit-linear-gradient(left, #fe7373, #d6d6d6, #7ec5ff);
     background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-align-last: center; /* safari doesn't support */
     font-size: 24px;
     font-weight: 700;
     padding: 8px;
-    text-align-last: center; 
     border: 1px solid #bbb;
     margin: 0;
-    -webkit-appearance: none; /* hide default arrows */
+    -webkit-appearance: none; /* hide default select arrows on header option */
     font-family: 'News Cycle', 'Open Sans', sans-serif;
 }
-
-/* cuz firefox option css style changes but chrome dropdown doesn't */
+/* cuz firefox option css style changes but chrome dropdown doesn't, firefox styles */
 .converter-wrapper span option {
     background-color: #e6f1ff;
     color: #555;
     font-size: 20px;
     font-weight: 400;
+}
+/* cuz safari transparent clip text issue, make black */
+/* mobile safari and chrome... */
+@supports (-webkit-text-size-adjust: none) and (not (-ms-ime-align: auto)) and (not (-moz-appearance: none)) {
+    .converter-wrapper span select {
+        background-image: none;
+        /* color: #555; */
+        -webkit-text-fill-color: #555;
+        text-align-last: none;
+        padding-left: 16px;
+        padding-right: 10px;
+    }
+}
+/* desktop safari and chrome... */
+_:-webkit-full-screen:not(:root:root), .converter-wrapper span select {
+    background-image: none;
+    /* color: #555; */
+    -webkit-text-fill-color: #555;
+    text-align-last: none;
+    padding-left: 16px;
+    padding-right: 10px;
 }
 
 .converters {
@@ -115,8 +139,8 @@ input[type=number]:focus {
 
 .converter-wrapper input {
     font-size: 16px;
-    width: 110px;
-    text-align: center;
+    /* width: 110px; */
+    /* text-align: center; */
 }
 
 /* unit menu */
@@ -124,11 +148,11 @@ input[type=number]:focus {
     font-family: 'News Cycle', 'Open Sans', sans-serif;
     font-size: 20px;
     font-weight: 400;
-    width: 120px;
+    /* width: 120px; */
     padding: 5px;
     background: #ebf5ff;
     border: 0px;
 }
-.converter-wrapper select.A {
+/* .converter-wrapper select.A {
     margin-right: 2px;
-}
+} */

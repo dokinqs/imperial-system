@@ -3,6 +3,7 @@
 <head>
 	<meta name="author" content="Karen Zhao">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css?family=News+Cycle:400,700" rel="stylesheet">
 	<link rel="shortcut icon" type="image/jpg" href="https://image.freepik.com/free-vector/grunge-style-american-flag-background_1048-2203.jpg">
 	<title>Unit Converter</title>
@@ -12,6 +13,7 @@
 <body>
 
 	<h1 class="grayscale">Imperial / Metric Conversion</h1>
+
 	<div class="container">
 		<h3 class="grayscale">Weight (lbs / kg)</h3>
 		<div class="convert">
@@ -67,6 +69,7 @@
 			</div>
 		</div>
 
+
 		<div class="converter-wrapper">
 		
 			<form name="property_form">
@@ -89,10 +92,13 @@
 						<input type="number" step="any" name="unit_input" placeholder="0" onKeyUp="ConvertFromTo(document.form_B, document.form_A)">
 						<select name="unit_menu" class="B" onChange="ConvertFromTo(document.form_A, document.form_B)"></select>
 					</form>
-				</div> <!-- /converter-side-b -->
-			</div> <!-- /converters -->
-		</div><!-- /converter-wrapper -->
-	</div>
+				</div> <!-- converter-side-b -->
+				
+			</div> <!-- converters -->
+
+		</div><!-- converter-wrapper -->
+
+	</div><!-- container -->
 
 <script src="converter.js" type="text/javascript"></script>
 </body>
