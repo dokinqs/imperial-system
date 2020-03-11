@@ -82,7 +82,8 @@
 			<div class="converters">
 				<div class="converter-side-a">
 					<form name="form_A" onSubmit="return false">
-						<input type="number" step="any" name="unit_input" placeholder="0" onKeyUp="ConvertFromTo(document.form_A, document.form_B)">	
+						<input type="number" step="any" name="unit_input" placeholder="0" onKeyUp="ConvertFromTo(document.form_A, document.form_B)">
+						<br />	
 						<select name="unit_menu" class="A" onChange="ConvertFromTo(document.form_B, document.form_A)"></select>
 					</form>
 				</div> 
@@ -90,6 +91,7 @@
 				<div class="converter-side-b">
 					<form name="form_B" onSubmit="return false">
 						<input type="number" step="any" name="unit_input" placeholder="0" onKeyUp="ConvertFromTo(document.form_B, document.form_A)">
+						<br />
 						<select name="unit_menu" class="B" onChange="ConvertFromTo(document.form_A, document.form_B)"></select>
 					</form>
 				</div> <!-- converter-side-b -->
